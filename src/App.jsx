@@ -1,33 +1,41 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Formu from './componentes/Formu'
+import Card from './componentes/Card'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  
+  const [palabra1,setPalabra1] = useState("")
+  const [palabra2,setPalabra2] = useState("")
+
+  function handleOnSubmit(palabra1,palabra2) {
+    
+    if(palabra1.trim().length <3){
+      console.error("LA PALABRA 1 DEBE SER DE MINIMO 3 CARACTERES")
+    }
+    else(
+      setPalabra1(palabra1.trim())
+    )
+  
+    if(palabra2.trim().length <6){
+      console.log(palabra2.trim().length)
+      console.error("LA PALABRA 2 DEBE SER DE MINIMO 6 CARACTERES")
+    }
+    else(
+      setPalabra2(palabra2.trim())
+    )
+    
+    
+  }
+  
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Formu cambio={handleOnSubmit}/>
+
+      {(palabra1 && palabra2)? <Card  palabra1={palabra1} palabra2={palabra2} />: null }  
+      
+    
     </>
   )
 }
