@@ -22,9 +22,9 @@ function Formu({ cambio }) {
     <>
       <form onSubmit={handleSubmit}>
         <label htmlFor="">Palabra 1</label>
-        <input type="text" name="palabra1" placeholder="Ingrese la palabra 1" value={palabra1} onChange={handleInputChange} />
+        <input type="text" name="palabra1" placeholder="Ingrese la palabra 1"  onChange={handleInputChange} />
         <label htmlFor="">Palabra 2</label>
-        <input type="text" name="palabra2" placeholder="Ingrese la palabra 2" value={palabra2} onChange={handleInputChange} />
+        <input type="text" name="palabra2" placeholder="Ingrese la palabra 2"  onChange={handleInputChange} />
         <button type="submit">Enviar</button>
       </form>
     </>
